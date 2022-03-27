@@ -22,6 +22,6 @@ sed -i 's/$/ /' packagelist
 rm installist packagelist2
 
 mkdir -p ~/.cache/instantos
-cp packagelist ~/.cache/instantos/packagelist
+mv packagelist ~/.cache/instantos/packagelist
 
 curl -s https://aur.archlinux.org/packages.gz | gunzip - | sort -u >~/.cache/instantos/aurlist 
