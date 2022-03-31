@@ -17,7 +17,7 @@ fi
 if [ $1 = '-i' ]; then
     shift
     [ "$(iconf packagedate)" = "$(date '+%D' | sed 's~/~~g')" ] || updatelist &
-    PACKAGE="$(instantmenu -c -l 20 -w -1 -bw 4 -q 'search package' -p "${1:-packages}" <~/.cache/instantos/packagelist)"
+    PACKAGE="$(pacman -Qq | instantmenu -c -l 20 -w -1 -bw 4 -q 'search package' -p "${1:-packages}" )"
 else if [ $1 = '-a' ]; then
     shift
     PACKAGE="$(instantmenu -c -l 20 -w -1 -bw 4 -q 'search package' -p "${1:-packages}" <~/.cache/instantos/aurlist)"
