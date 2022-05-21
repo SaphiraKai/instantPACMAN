@@ -35,6 +35,8 @@ case "$CHOICE" in
 *package)
     PACKAGE="$(instantchoosepackage -a)"
     [ -n "$PACKAGE" ] || exit
+    st -c instantfloat -g '80x32' -e sh -c "(yay -S $PACKAGE || bash) && notify-send 'finished installing '$PACKAGE"
+    ;;
 *Update)
     st -c instantfloat -g '80x32' -e sh -c nice yay
     ;;
