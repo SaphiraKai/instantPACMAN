@@ -35,10 +35,10 @@ case "$CHOICE" in
 *package)
     PACKAGE="$(instantchoosepackage -a)"
     [ -n "$PACKAGE" ] || exit
-    st -c instantfloat -g '80x32' -e sh -c "(yay -S $PACKAGE || bash) && notify-send 'finished installing '$PACKAGE"
+    st -c instantfloat -g '80x32' -e sh -c "(nice yay -S $PACKAGE || bash) && notify-send 'finished installing '$PACKAGE"
     ;;
 *Update)
-    st -c instantfloat -g '80x32' -e sh -c nice yay
+    st -c instantfloat -g '80x32' -e sh -c 'nice yay'
     ;;
 *Options)
     CHOICE="$(echo ':g Chaotic-AUR
